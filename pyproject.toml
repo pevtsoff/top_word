@@ -25,9 +25,3 @@ asgi-lifespan = "^2.1.0"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.flake8]
-max-line-length = 120
-
-[tool.black]
-line-length = 120
