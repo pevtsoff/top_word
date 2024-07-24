@@ -16,6 +16,18 @@ Set of two microservices.
 
 ```
 
+## Local launch
+
+```shell
+1.pip install poetry
+2.poetry install
+3.Run 
+api:
+python top_word/main.py api
+word-consumer:
+python top_word/main.py word-consumer
+```
+
 ## Run tests in docker compose
 
 ```shell
