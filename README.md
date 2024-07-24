@@ -16,6 +16,13 @@ Set of two microservices.
 
 ```
 
+
+## Run tests in docker compose
+
+```shell
+docker compose -f docker-compose-test up
+```
+
 ## Local launch
 
 ```shell
@@ -28,10 +35,10 @@ word-consumer:
 python top_word/main.py word-consumer
 ```
 
-## Run tests in docker compose
+## Run tests locally
 
 ```shell
-docker compose -f docker-compose-test up
+pytest tests
 ```
 
 ## Request examples:
