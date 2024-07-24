@@ -1,0 +1,48 @@
+x-base-python: &x-base-python
+  build:
+    context: .
+    args:
+      - INSTALL_DIR=${INSTALL_DIR}
+  image: app-base-image:${TAG}
+  env_file: .env
+  working_dir: ${INSTALL_DIR}
+  depends_on:
+    - redis
+  restart: on-failure
+  volumes:
+    - .:/usr/src/app
+
+services:
+  api:
+    <<: *x-base-python
+    command: sh -c "python top_word/main.py api"
+    container_name: api-${TAG}
+    environment:
+      - API_PORT=${API_PORT}
+      - PORT_PREFIX=${PORT_PREFIX}
+    ports:
+      - "${PORT_PREFIX}000:${API_PORT}"
+    depends_on:
+      - redis
+
+  word-consumer:
+    <<: *x-base-python
+    command: sh -c "python top_word/main.py word-consumer"
+    container_name: word-consumer-${TAG}
+    #restart: always
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3 # Maximum number of retries
+        window: 3s
+
+  redis:
+    image: redis:latest
+    command: "redis-server /etc/redis/redis.conf"
+    volumes:
+      - ./docker/redis/redis.conf:/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+
+volumes:
+  postgresql-data:

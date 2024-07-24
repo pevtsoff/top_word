@@ -1,0 +1,8 @@
+*.pyc
+/venv*/
+.idea/
+*/media/
+logs
+/static/
+.pytest_cache/**
+.env
