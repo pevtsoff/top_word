@@ -31,7 +31,5 @@ async def test_get_word_of_the_day_failure(mocker: Mock) -> None:
     service = ApiService()
 
     with pytest.raises(NoValidTopicExists):
-        article = await service.get_article(request)
+        await service.get_article(request)
 
-        assert article.header == "Test Header"
-        assert article.body == "Test Body"

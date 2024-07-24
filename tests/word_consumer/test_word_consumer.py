@@ -84,7 +84,6 @@ async def test_fetch_word_no_word_in_title(mock_httpx_get: AsyncMock) -> None:
         await fetch_word()
 
 
-# To ensure the retry mechanism works correctly with with_retry decorator
 @pytest.mark.parametrize("attempts", [1, 2, 3])
 async def test_fetch_word_with_retry(mock_httpx_get: AsyncMock, attempts: int) -> None:
     # Mock to fail for `attempts-1` times and succeed on the last attempt
