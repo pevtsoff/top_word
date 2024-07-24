@@ -12,11 +12,12 @@ from top_word.exceptions import NoValidTopicExists
 
 pytestmark = pytest.mark.asyncio
 
+TEST_TOPIC = {"header": "Test Header", "body": "Test Body"}
 
 @pytest_asyncio.fixture
 async def client(mocker: Mock) -> AsyncGenerator[AsyncClient, None]:
     mock_redis_client = AsyncMock()
-    mock_redis_client.get.return_value = json.dumps({"header": "Test Header", "body": "Test Body"}).encode()
+    mock_redis_client.get.return_value = json.dumps(TEST_TOPIC).encode()
     mocker.patch("top_word.api.fastapi_app.connect_to_redis", return_value=mock_redis_client)
 
     app = create_fastapi_app()
@@ -29,7 +30,7 @@ async def client(mocker: Mock) -> AsyncGenerator[AsyncClient, None]:
 @pytest_asyncio.fixture
 async def client_no_valid_topic_exists_exception(mocker: Mock) -> AsyncGenerator[AsyncClient, None]:
     mock_redis_client = AsyncMock()
-    mock_redis_client.get.return_value = json.dumps({"header": "Test Header", "body": "Test Body"}).encode()
+    mock_redis_client.get.return_value = json.dumps(TEST_TOPIC).encode()
     mocker.patch("top_word.api.fastapi_app.connect_to_redis", return_value=mock_redis_client)
 
     api_service_mock = AsyncMock()
@@ -52,7 +53,7 @@ async def test_get_word_of_the_day_success(client: AsyncClient) -> None:
     response = await client.get("/word_of_the_day/")
 
     assert response.status_code == 200
-    assert response.json() == {"header": "Test Header", "body": "Test Body"}
+    assert response.json() == TEST_TOPIC
 
 
 # negative tests
