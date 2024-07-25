@@ -2,7 +2,7 @@ import logging
 
 from fastapi import APIRouter, Depends, Request
 from top_word.api.api_service import ApiService
-from top_word.models import TopicOfTheDay
+from top_word.common.models import TopicOfTheDay
 
 router = APIRouter(prefix="/word_of_the_day", tags=["word_of_the_day"])
 logger = logging.getLogger("api")

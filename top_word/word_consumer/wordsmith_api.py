@@ -2,7 +2,7 @@ import os
 import xml.etree.ElementTree as ET
 
 import httpx
-from top_word.common import configure_logger, with_retry
+from top_word.common.common import configure_logger, with_retry
 
 logger = configure_logger(__name__)
 WORDSMITH_URL = os.getenv("WORDSMITH_URL")

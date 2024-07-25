@@ -6,8 +6,8 @@ from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.requests import Request
 from starlette.responses import JSONResponse
-from top_word.common import configure_logger
-from top_word.models import DetailMessage, ErrorResponse
+from top_word.common.common import configure_logger
+from top_word.common.models import DetailMessage, ErrorResponse
 
 logger = configure_logger(__name__)
 

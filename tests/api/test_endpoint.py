@@ -8,7 +8,7 @@ from asgi_lifespan import LifespanManager
 from httpx import AsyncClient
 from top_word.api.api_service import ApiService
 from top_word.api.fastapi_app import create_fastapi_app  # Adjust the import based on your app's location
-from top_word.exceptions import NoValidTopicExists
+from top_word.common.exceptions import NoValidTopicExists
 
 pytestmark = pytest.mark.asyncio
 

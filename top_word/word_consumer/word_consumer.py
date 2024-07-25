@@ -3,8 +3,8 @@ import os
 from datetime import datetime
 
 from dotenv import load_dotenv
-from top_word.common import configure_logger, flush_data_to_redis, repeat
-from top_word.models import TopicOfTheDay, WordOfTheDay
+from top_word.common.common import configure_logger, flush_data_to_redis, repeat
+from top_word.common.models import TopicOfTheDay, WordOfTheDay
 from top_word.word_consumer.openai_api import generate_topic
 from top_word.word_consumer.wordsmith_api import fetch_word
 

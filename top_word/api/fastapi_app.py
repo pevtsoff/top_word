@@ -8,8 +8,8 @@ from fastapi import FastAPI
 from fastapi.exceptions import RequestValidationError
 from starlette.exceptions import HTTPException as StarletteHTTPException
 from top_word.api.api import router
-from top_word.common import connect_to_redis
-from top_word.exception_handlers import common_exception_handler
+from top_word.common.common import connect_to_redis
+from top_word.common.exception_handlers import common_exception_handler
 
 api_host = os.getenv("API_HOST", "0.0.0.0")
 api_port = int(os.getenv("API_PORT", 8000))

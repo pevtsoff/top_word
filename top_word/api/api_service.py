@@ -2,8 +2,8 @@ import json
 import os
 
 from fastapi import Request
-from top_word.exceptions import NoValidTopicExists
-from top_word.models import TopicOfTheDay
+from top_word.common.exceptions import NoValidTopicExists
+from top_word.common.models import TopicOfTheDay
 
 REDIS_TOPIC_KEY = os.getenv("REDIS_TOPIC_KEY", "top_article")
 

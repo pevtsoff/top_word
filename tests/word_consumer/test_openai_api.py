@@ -2,7 +2,7 @@ from typing import Any, Generator
 from unittest.mock import AsyncMock, patch
 
 import pytest
-from top_word.exceptions import InvalidTopicData
+from top_word.common.exceptions import InvalidTopicData
 from top_word.word_consumer.openai_api import extract_data, generate_topic
 
 pytestmark = pytest.mark.asyncio

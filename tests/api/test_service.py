@@ -4,7 +4,7 @@ from unittest.mock import AsyncMock, Mock
 import pytest
 from fastapi import Request
 from top_word.api.api_service import ApiService
-from top_word.exceptions import NoValidTopicExists
+from top_word.common.exceptions import NoValidTopicExists
 
 pytestmark = pytest.mark.asyncio
 

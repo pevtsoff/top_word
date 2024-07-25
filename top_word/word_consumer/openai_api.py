@@ -4,9 +4,9 @@ import re
 
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
-from top_word.common import configure_logger, with_retry
-from top_word.exceptions import InvalidTopicData
-from top_word.models import TopicOfTheDay
+from top_word.common.common import configure_logger, with_retry
+from top_word.common.exceptions import InvalidTopicData
+from top_word.common.models import TopicOfTheDay
 
 load_dotenv()
 openai_client = AsyncOpenAI()
