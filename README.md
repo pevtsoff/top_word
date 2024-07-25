@@ -10,7 +10,7 @@ Set of two microservices.
 ## Build and launch
 
 ```shell
-1.Create a .env file from .env.template
+1.Create a .env file from .env.template. Fill in the OPENAI_API_KEY variable with your key
 2.docker compose build
 3.docker compose up
 
