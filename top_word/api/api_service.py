@@ -9,7 +9,8 @@ REDIS_TOPIC_KEY = os.getenv("REDIS_TOPIC_KEY", "top_article")
 
 
 class ApiService:
-    async def get_article(self, request: Request) -> TopicOfTheDay:
+    @staticmethod
+    async def get_article(request: Request) -> TopicOfTheDay:
         redis_client = request.app.state.redis_client
         article_str = await redis_client.get(REDIS_TOPIC_KEY)
 

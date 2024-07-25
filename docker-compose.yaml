@@ -22,18 +22,15 @@ services:
       - PORT_PREFIX=${PORT_PREFIX}
     ports:
       - "${PORT_PREFIX}000:${API_PORT}"
-    depends_on:
-      - redis
 
   word-consumer:
     <<: *x-base-python
     command: sh -c "python top_word/main.py word-consumer"
     container_name: word-consumer-${TAG}
-    #restart: always
     deploy:
       restart_policy:
         condition: on-failure
-        max_attempts: 3 # Maximum number of retries
+        max_attempts: 3
         window: 3s
 
   redis:

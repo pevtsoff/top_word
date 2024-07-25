@@ -20,7 +20,7 @@ LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG")
 
 redis_host = os.getenv("REDIS_HOST", "redis")
 redis_port = int(os.getenv("REDIS_PORT", 6379))
-retry = Retry(ExponentialBackoff(), 3)
+retry = Retry(ExponentialBackoff(1,2), 15)
 
 
 def configure_logger(name: str, log_level: str = LOG_LEVEL) -> logging.Logger:
@@ -60,7 +60,7 @@ async def connect_to_redis() -> Any:
         await redis_client.ping()
 
     except sync_redis.exceptions.ConnectionError:
-        logger.exception("Cant connect to redis at this moment, " "will be retrying on the next flush attempt")
+        logger.exception("Cant connect to redis at this moment...")
         raise
 
     return redis_client
