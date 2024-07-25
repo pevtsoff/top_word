@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "word of the day"
+version = "0.1.0"
+description = "A small application that provides an article for the word of the day"
+authors = ["Ivan Pevtsov <ipevtsov.contractor@libertyglobal.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+python-dotenv = "^1.0.1"
+redis = "^5.0.1"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+httpx = "^0.27.0"
+openai = "^1.35.15"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+deepdiff = "^6.7.1"
+pytest-mock = "^3.14.0"
+pytest-asyncio = "^0.23.8"
+asgi-lifespan = "^2.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
