@@ -4,7 +4,7 @@ This is a test assignment described in [task](./task.md)
 Set of two microservices.
 
 1. word_consumer - fetches the word of the day from wordsmith,
-   generate GPT article for it and stores in redis
+   generate GPT article for it and stores in redis. It used ChatGPT as  LLM model
 2. api - fastapi based endpoint which fetches the article from redis and give it to the rest api clients
 
 ## Build and launch

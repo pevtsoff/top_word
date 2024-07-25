@@ -20,6 +20,6 @@ class ApiService:
                 status_code=404,
             )
 
-        else:
-            article = TopicOfTheDay(**json.loads(article_str.decode()))
-            return article
+
+        article = TopicOfTheDay(**json.loads(article_str.decode()))
+        return article

@@ -48,14 +48,14 @@ async def generate_topic(word: str) -> TopicOfTheDay:
 def extract_data(raw_message: str) -> TopicOfTheDay:
     match = extract_pattern.search(raw_message)
 
-    if match:
-        header = match.group("Header")
-        body = match.group("Body")
-        print(f"{body.__len__()=}")
-        return TopicOfTheDay(header=header.strip(), body=body.strip())
-
-    else:
+    if not match:
         raise InvalidTopicData("Cant extract data from OpenAI Response")
+
+    header = match.group("Header")
+    body = match.group("Body")
+    print(f"{body.__len__()=}")
+    return TopicOfTheDay(header=header.strip(), body=body.strip())
+
 
 
 if __name__ == "__main__":
