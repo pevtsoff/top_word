@@ -5,9 +5,9 @@ ARG INSTALL_DIR=${INSTALL_DIR}
 RUN mkdir -p $INSTALL_DIR
 WORKDIR $INSTALL_DIR
 
-COPY ./pyproject.toml ./poetry.lock ./
+COPY ../pyproject.toml ./poetry.lock ./
 RUN pip3 install poetry && poetry config virtualenvs.create false
-COPY wait-for /bin/wait-for
+COPY ../wait-for /bin/wait-for
 RUN poetry install
 
 

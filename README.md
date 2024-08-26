@@ -11,16 +11,15 @@ Set of two microservices.
 
 ```shell
 1.Create a .env file from .env.template. Fill in the OPENAI_API_KEY variable with your key
-2.docker compose build
-3.docker compose up
-
+2.docker compose --env-file .env  -f docker/docker-compose.yaml build
+3.docker compose --env-file .env  -f docker/docker-compose.yaml up
 ```
 
 
 ## Run tests in docker compose
 
 ```shell
-docker compose -f docker-compose-test up
+docker compose --env-file .env -f docker-compose-test up
 ```
 
 ## Local launch
